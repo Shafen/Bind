@@ -1,16 +1,50 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Chat Example</title>
+    <title>Angular Databinding</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.0/angular.min.js"></script>
 
   </head>
-  <body>
+  <body ng-app>
+    
+    <div class="container">
+      
+      <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+          <a href="#" class="brand">Angular Binding</a>
+        </div> <!-- End class="navbar-inner" -->
+      </div> <!-- End class="navbar" -->
+      
+      <div class="row">
+        <div class="page-header">
+          <h1>Search for Obi-Wan Kenobi</h1>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div call="span12">
+          <input class="full-width" type="text" ng-model="message" placeholder="Enter Your Name - If your name is Obi-Wan Kenobi you have a message waiting for you!">
+        </div>
+        <p ng-bind="'Hello: ' + message"></p> <!-- Alternative way to bind data -->
+        <p>Hello: {{ message }}</p>
+        <p>Obi-Wan Kenobi? {{ message === 'Obi-Wan Kenobi' }}</p>
+        <p>Shows Name Twice: {{message + message}}</p>
+        <div class="alert alert-warning" ng-show="message === 'Obi-Wan Kenobi'" role="alert">These are not the droids we're looking for!</div>
+      </div>
+      
+      
+      
+      <hr />
+      <p>This application is a quick AngularJS binding demo</p>
 
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/angular.min.js"></script>
+    </div> <!-- End class="container" -->
+    
   </body>
 </html>
